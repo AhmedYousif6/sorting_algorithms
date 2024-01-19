@@ -24,7 +24,6 @@ void print_list(const listint_t *list);
 
 /* Swap Functions */
 void swap_list(listint_t *a, listint_t *b);
-void swap_array(int *a, int *b);
 
 /* Sorting Functions */
 void bubble_sort(int *array, size_t size);
