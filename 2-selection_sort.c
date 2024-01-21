@@ -25,7 +25,6 @@ void selection_sort(int *array, size_t size)
 			{
 				k = j;
 			}
-			
 		}
 		if (k != i)
 		{
