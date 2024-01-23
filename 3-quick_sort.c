@@ -14,17 +14,18 @@ void quick_sort(int *array, size_t size)
 		return;
 	low = 0;
 	high = size - 1;
-	quicksort(array, low, high);
+	quicksort(array, size, low, high);
 }
 
 /**
  * quicksort - quicksort function
  * @array: the array
+ * @size: size of array
  * @low: the first value
  * @high: the last value
  * Return: nothing
  */
-void quicksort(int *array, int low, int high)
+void quicksort(int *array, size_t size, int low, int high)
 {
 	size_t pivot;
 
@@ -32,20 +33,21 @@ void quicksort(int *array, int low, int high)
 		return;
 	if (low < high)
 	{
-		pivot = lomuto(array, low, high);
-		quicksort(array, (pivot + 1), high);
-		quicksort(array, low, (pivot - 1));
+		pivot = lomuto(array, size, low, high);
+		quicksort(array, size, (pivot + 1), high);
+		quicksort(array, size, low, (pivot - 1));
 	}
 }
 
 /**
  * lomuto - the lomuto partitioning way
  * @array: the array to be parted
+ * @size: size of array
  * @low: the first value
  * @high: the highest value
  * Return: the index of the new pivot
  */
-int lomuto(int *array, int low, int high)
+int lomuto(int *array, size_t size, int low, int high)
 {
 	int pivot = array[high], tmp;
 	int j, i;
@@ -60,7 +62,7 @@ int lomuto(int *array, int low, int high)
 				tmp = array[i];
 				array[i] = array[j];
 				array[j] = tmp;
-				print_array(array, (10));
+				print_array(array, size);
 			}
 			i++;
 		}
@@ -70,7 +72,7 @@ int lomuto(int *array, int low, int high)
 		tmp = array[i];
 		array[i] = array[high];
 		array[high] = tmp;
-		print_array(array, (10));
+		print_array(array, size);
 	}
 	return (i);
 }
