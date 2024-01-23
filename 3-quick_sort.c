@@ -25,7 +25,7 @@ void quick_sort(int *array, size_t size)
  * @high: the last value
  * Return: nothing
  */
-void quicksort(int *array, size_t size, int low, int high)
+void quicksort(int *array, size_t size, ssize_t low, ssize_t high)
 {
 	size_t pivot;
 
@@ -47,7 +47,7 @@ void quicksort(int *array, size_t size, int low, int high)
  * @high: the highest value
  * Return: the index of the new pivot
  */
-int lomuto(int *array, size_t size, int low, int high)
+size_t lomuto(int *array, size_t size, ssize_t low, ssize_t high)
 {
 	int pivot = array[high], tmp;
 	int j, i;
@@ -55,7 +55,7 @@ int lomuto(int *array, size_t size, int low, int high)
 	i = low;
 	for (j = low; j < high; j++)
 	{
-		if (pivot >= array[j])
+		if (array[j] < pivot)
 		{
 			if (array[i] != array[j])
 			{
