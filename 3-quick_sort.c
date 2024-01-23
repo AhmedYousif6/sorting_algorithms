@@ -67,9 +67,9 @@ int lomuto(int *array, int low, int high)
 	}
 	if (i != high)
 	{
-		tmp2 = array[i];
+		tmp = array[i];
 		array[i] = array[high];
-		array[high] = tmp2;
+		array[high] = tmp;
 		print_array(array, (10));
 	}
 	return (i);
