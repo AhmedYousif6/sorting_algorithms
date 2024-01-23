@@ -55,7 +55,7 @@ int lomuto(int *array, int low, int high)
 	{
 		if (pivot >= array[j])
 		{
-			if (i != j)
+			if (array[i] != array[j])
 			{
 				tmp = array[i];
 				array[i] = array[j];
@@ -65,7 +65,7 @@ int lomuto(int *array, int low, int high)
 			i++;
 		}
 	}
-	if (i != high)
+	if (array[i] != array[high])
 	{
 		tmp = array[i];
 		array[i] = array[high];
