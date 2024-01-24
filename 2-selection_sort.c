@@ -6,7 +6,7 @@
  * @array: the integers' array
  * @size: the array size
  *
- * Return: nothing
+ * Return: Nothing
 */
 void selection_sort(int *array, size_t size)
 {

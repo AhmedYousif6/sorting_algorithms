@@ -4,7 +4,8 @@
  * insertion_sort_list - sorts a doubly linked list of integers in
  * ascending order using insertion sort algorithm.
  * @list: a doubly linked list of integers to be sorted.
- * Return: nothing.
+ *
+ * Return: Nothing.
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -40,7 +41,8 @@ void insertion_sort_list(listint_t **list)
  * swap_list - swaps two nodes in a doubly linked list.
  * @a: the first node to swap.
  * @b: the second node to swap with the first node a.
- * Return: nothing.
+ *
+ * Return: Nothing.
  */
 
 void swap_list(listint_t *a, listint_t *b)
