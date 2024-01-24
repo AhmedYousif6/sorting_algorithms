@@ -2,77 +2,77 @@
 
 /**
  * quick_sort - sorts an array of integers.
- * @array: the integers' array
- * @size: the array size
- * Return: Nothing
+ * @array: array of integers.
+ * @size: size of array.
+ * Return: nothing.
  */
 void quick_sort(int *array, size_t size)
 {
-	size_t low, high;
-
 	if (!array || size < 2)
 		return;
-	low = 0;
-	high = size - 1;
-	quicksort(array, size, low, high);
+
+	recur(array, size, 0, size - 1);
 }
 
 /**
- * quicksort - quicksort function
- * @array: the array
- * @size: size of array
- * @low: the first value
- * @high: the last value
- * Return: nothing
+ * recur - repeat the partitioning.
+ * @array: an array to be parted.
+ * @size: size of array.
+ * @start: start index.
+ * @end: end index.
+ * Return: Nothing.
  */
-void quicksort(int *array, size_t size, ssize_t low, ssize_t high)
+void recur(int *array, size_t size, ssize_t start, ssize_t end)
 {
-	size_t pivot;
-
-	if (low >= high)
-		return;
-	if (low < high)
+	size_t part;
+	if (start < end)
 	{
-		pivot = lomuto(array, size, low, high);
-		quicksort(array, size, (pivot + 1), high);
-		quicksort(array, size, low, (pivot - 1));
+		part = partition(array, size, start, end);
+		recur(array, size, start, part - 1);
+		recur(array, size, part + 1, end);
 	}
 }
 
 /**
- * lomuto - the lomuto partitioning way
- * @array: the array to be parted
- * @size: size of array
- * @low: the first value
- * @high: the highest value
- * Return: the index of the new pivot
+ * partition - part the array to two half.
+ * @array: an array to be parted.
+ * @size: size of array.
+ * @start: start index.
+ * @end: end index.
+ * Return: the index of new pivot.
  */
-size_t lomuto(int *array, size_t size, ssize_t low, ssize_t high)
+size_t partition(int *array, size_t size, ssize_t start, ssize_t end)
 {
-	int pivot = array[high], tmp;
-	int j, i;
+	int pivot = array[end], ptr, i;
 
-	i = low;
-	for (j = low; j < high; j++)
+	for (i = ptr = start; i < end; i++)
 	{
-		if (array[j] < pivot)
+		if (array[i] < pivot)
 		{
-			if (array[i] != array[j])
-			{
-				tmp = array[i];
-				array[i] = array[j];
-				array[j] = tmp;
-				print_array(array, size);
-			}
-			i++;
+			swap_print(array, size, &array[i], &array[ptr++]);
 		}
 	}
-	if (array[i] != array[high])
+	swap_print(array, size, &array[ptr], &array[end]);
+	return (ptr);
+}
+
+
+/**
+ * swap_print - swaps two values and print the swap step.
+ * @array: array to be printed.
+ * @size: size of array .
+ * @a: first value to swap.
+ * @b: second value.
+ * Return: nothing .
+ */
+void swap_print(int *array, size_t size, int *a, int *b)
+{
+	if (*a != *b)
 	{
-		tmp = array[i];
-		array[i] = array[high];
-		array[high] = tmp;
+		*a = *a + *b;
+		*b = *a - *b;
+		*a = *a - *b;
 		print_array(array, size);
 	}
-	return (i);
 }
+

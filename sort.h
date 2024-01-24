@@ -24,13 +24,14 @@ void print_list(const listint_t *list);
 
 /* Swap Functions */
 void swap_list(listint_t *a, listint_t *b);
+void swap_print(int *array, size_t size, int *a, int *b);
 
 /* Sorting Functions */
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void quicksort(int *array, size_t size, ssize_t low, ssize_t high);
-size_t lomuto(int *array, size_t size, ssize_t low, ssize_t high);
+size_t partition(int *array, size_t size, ssize_t start, ssize_t end);
+void recur(int *array, size_t size, ssize_t start, ssize_t end);
 
 #endif
