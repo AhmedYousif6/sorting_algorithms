@@ -5,7 +5,8 @@
  * using bubble sort algorithm.
  * @array: an array of integers to be sorted.
  * @size: the size of given array.
- * Return: nothing.
+ *
+ * Return: Nothing.
 */
 void bubble_sort(int *array, size_t size)
 {
