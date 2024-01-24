@@ -8,7 +8,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || size < 2)
+	if (!array || !size)
 		return;
 
 	recur(array, size, 0, size - 1);
@@ -24,10 +24,10 @@ void quick_sort(int *array, size_t size)
  */
 void recur(int *array, size_t size, ssize_t start, ssize_t end)
 {
-	size_t part;
 	if (start < end)
 	{
-		part = partition(array, size, start, end);
+		size_t part = partition(array, size, start, end);
+
 		recur(array, size, start, part - 1);
 		recur(array, size, part + 1, end);
 	}
@@ -72,7 +72,7 @@ void swap_print(int *array, size_t size, int *a, int *b)
 		*a = *a + *b;
 		*b = *a - *b;
 		*a = *a - *b;
-		print_array(array, size);
+		print_array((const int *)array, size);
 	}
 }
 
