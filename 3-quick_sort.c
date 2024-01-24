@@ -4,7 +4,8 @@
  * quick_sort - sorts an array of integers.
  * @array: array of integers.
  * @size: size of array.
- * Return: nothing.
+ *
+ * Return: Nothing.
  */
 void quick_sort(int *array, size_t size)
 {
@@ -20,6 +21,7 @@ void quick_sort(int *array, size_t size)
  * @size: size of array.
  * @start: start index.
  * @end: end index.
+ *
  * Return: Nothing.
  */
 void recur(int *array, size_t size, ssize_t start, ssize_t end)
@@ -39,6 +41,7 @@ void recur(int *array, size_t size, ssize_t start, ssize_t end)
  * @size: size of array.
  * @start: start index.
  * @end: end index.
+ *
  * Return: the index of new pivot.
  */
 size_t partition(int *array, size_t size, ssize_t start, ssize_t end)
@@ -63,7 +66,8 @@ size_t partition(int *array, size_t size, ssize_t start, ssize_t end)
  * @size: size of array .
  * @a: first value to swap.
  * @b: second value.
- * Return: nothing .
+ *
+ * Return: Nothing .
  */
 void swap_print(int *array, size_t size, int *a, int *b)
 {
@@ -75,4 +79,3 @@ void swap_print(int *array, size_t size, int *a, int *b)
 		print_array((const int *)array, size);
 	}
 }
-
